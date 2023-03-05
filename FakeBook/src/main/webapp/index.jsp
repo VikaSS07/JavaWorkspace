@@ -43,7 +43,7 @@
 	<main class="container-fluid">
 		<div class="row">
 			<div class="col-md-9">
-				<div >
+				<div>
 					<div class="card-body">
 						<h5 class="card-title">Recent Posts</h5>
 						<%
@@ -95,11 +95,47 @@
 					<div class="card-body">
 						<h5 class="card-title">Suggested Friends</h5>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="#">Emily Wilson</a></li>
-							<li class="list-group-item"><a href="#">David Lee</a></li>
-							<li class="list-group-item"><a href="#">Jessica Chen</a></li>
-							<li class="list-group-item"><a href="#">Mark Thompson</a></li>
-							<li class="list-group-item"><a href="#">Laura Davis</a></li>
+							<%
+							ArrayList<User> suggestedFriends = (ArrayList<User>) request.getAttribute("friendsSuggestion");
+							if (suggestedFriends != null) {
+
+								for (User friend : suggestedFriends) {
+							%>
+							<li class="list-group-item"><%=friend.getName()%>
+								<p class="text-right">
+									<a href="addFriend?id=<%=friend.getUserId()%>">Send Request</a>
+								</p></li>
+
+							<%
+							}
+							}
+							%>
+
+
+						</ul>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Suggested Friends</h5>
+						<ul class="list-group">
+							<%
+							//ArrayList<User> suggestedFriends = (ArrayList<User>) request.getAttribute("friendsSuggestion");
+							if (suggestedFriends != null) {
+
+								for (User friend : suggestedFriends) {
+							%>
+							<li class="list-group-item"><%=friend.getName()%>
+								<p class="text-right">
+									<a href="addFriend?id=<%=friend.getUserId()%>">Send Request</a>
+								</p></li>
+
+							<%
+							}
+							}
+							%>
+
+
 						</ul>
 					</div>
 				</div>
