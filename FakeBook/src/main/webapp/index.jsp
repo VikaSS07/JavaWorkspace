@@ -96,6 +96,7 @@
 						<h5 class="card-title">Suggested Friends</h5>
 						<ul class="list-group">
 							<%
+							//get suggested friends detils
 							ArrayList<User> suggestedFriends = (ArrayList<User>) request.getAttribute("friendsSuggestion");
 							if (suggestedFriends != null) {
 
